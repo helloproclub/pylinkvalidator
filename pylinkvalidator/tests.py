@@ -128,6 +128,9 @@ class URLUtilTest(unittest.TestCase):
         self.assertEqual(
             "http://www.example.com/",
             get_clean_url_split("http://www.example.com/").geturl())
+        self.assertEqual(
+            "http://www.example.com/media%20gallery",
+            get_clean_url_split("http://www.example.com/media gallery").geturl())
 
     def test_get_absolute_url(self):
         base_url_split = get_clean_url_split(

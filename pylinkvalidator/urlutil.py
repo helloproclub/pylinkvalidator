@@ -80,7 +80,7 @@ def url_encode_non_ascii(url_part):
     return re.sub(
         b'[\x80-\xFF]',
         lambda match: quote(match.group(0)).encode("utf-8"),
-        url_part.encode("utf-8")).decode("ascii")
+        url_part.encode("utf-8")).decode("ascii").replace(' ', '%20')  # handle space char in query
 
 
 def get_absolute_url_split(url, base_url_split):
